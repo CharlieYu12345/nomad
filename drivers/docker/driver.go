@@ -1321,11 +1321,11 @@ func (d *Driver) createContainerConfig(task *drivers.TaskConfig, driverConfig *T
 		network := task.Resources.NomadResources.Networks[0]
 
 		for _, port := range network.ReservedPorts {
-			ports.addMapped(port.Label, network.IP, port.Value, driverConfig.PortMap)
+			ports.addMapped(port.Label, "127.0.0.1", port.Value, driverConfig.PortMap)
 		}
 
 		for _, port := range network.DynamicPorts {
-			ports.addMapped(port.Label, network.IP, port.Value, driverConfig.PortMap)
+			ports.addMapped(port.Label, "127.0.0.1", port.Value, driverConfig.PortMap)
 		}
 
 	default:
